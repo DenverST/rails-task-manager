@@ -1,0 +1,13 @@
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <h2>
+        <%= link_to task.title, show_path(task.id) %>
+      </h2>
+      <p>
+        <%= task.completed %>
+      </p>
+    </li>
+  <% end  %>
+</ul>
