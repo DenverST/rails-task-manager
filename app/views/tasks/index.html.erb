@@ -1,13 +1,22 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 <ul>
   <% @tasks.each do |task| %>
     <li>
       <h2>
+          <% if task.completed == true  %>
+          <i class="fas fa-check-circle"></i>
+          <% end  %>
+          <% if task.completed == false  %>
+          <i class="fas fa-circle"></i>
+          <% end  %>
         <%= link_to task.title, show_path(task.id) %>
+        <%= link_to "Delete", destroy_path(task.id),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
       </h2>
-      <p>
-        <%= task.completed %>
-      </p>
     </li>
   <% end  %>
 </ul>
+
+<%= link_to "Add a Task", new_path %>

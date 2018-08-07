@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 <h1>
   <%= @task.title %>
 </h1>
@@ -9,11 +11,16 @@
 
 <h3>
   <% if @task.completed == true  %>
+  <i class="fas fa-check-circle"></i>
     <%= "Task has been completed!" %>
   <% end  %>
   <% if @task.completed == false  %>
+  <i class="fas fa-circle"></i>
     <%= "Task has not been completed!" %>
   <% end  %>
 </h3>
 
 <%= link_to "Return to tasks", index_path %>
+
+
+<%= link_to "Update task", edit_path(@task.id) %>
