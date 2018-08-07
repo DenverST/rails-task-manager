@@ -1,4 +1,19 @@
+<h1>
+  <%= @task.title %>
+</h1>
+
 
 <h2>
   <%= @task.details %>
 </h2>
+
+<h3>
+  <% if @task.completed == true  %>
+    <%= "Task has been completed!" %>
+  <% end  %>
+  <% if @task.completed == false  %>
+    <%= "Task has not been completed!" %>
+  <% end  %>
+</h3>
+
+<%= link_to "Return to tasks", index_path %>
